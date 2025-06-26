@@ -3,6 +3,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 				xmlns:l="using:ComboBoxSandbox"
+        xmlns:sys="using:System"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="ComboBoxSandbox.MainWindow"				
         Title="ComboBoxSandbox">
@@ -18,42 +19,17 @@
 							 x:DataType="l:ItemMVVM"
 							 DisplayMemberBinding="{Binding LocalizedDisplayText}" />
 		</HeaderedContentControl>
-		
-		<!--
-		Combobox using ItemMVVM as data type, so DisplayMemberBinding and SelectedValueBinding can be set.
-		SelectedValue cannot be set because it expects in in a FormsMVVM data type.
-		-->
-		
-		<HeaderedContentControl Header="xDataType is ItemMVVM" x:Name="myCombo1Context" x:DataType="l:FormMVVM">
-			
-			<StackPanel>
-				
-					<ComboBox x:Name="myCombo1"
-								x:DataType="l:ItemMVVM"
-								DisplayMemberBinding="{Binding LocalizedDisplayText}"
-								SelectedValueBinding="{Binding ActualValueToBeSet}"
-								SelectionChanged="myCombo1_SelectionChanged"
-						    /> <!-- SelectedValue="{Binding CurrentSelection, Mode=TwoWay}" cannot be set, using SelectionChanged to hack it -->
-				
-					<TextBlock Text="{Binding CurrentSelection}" />
-										 
-			</StackPanel>			
-			
-		</HeaderedContentControl>
-		
-		<!--
-		Combobox using FormMVVM as data type, so SelectedValue can be set.
-		But then, neither DisplayMemberBinding nor SelectedValueBinding cannot be set
-		-->
+
+    <!-- collection set from code behind  -->
 		
 		<HeaderedContentControl Header="xDataType is FormMVVM" x:Name="myCombo2Context" x:DataType="l:FormMVVM">
 			
 			<StackPanel>
 			
-				<ComboBox x:Name="myCombo2"
-								x:DataType="l:FormMVVM"
-								SelectedValue="{Binding CurrentSelection, Mode=TwoWay}"
-								/> <!-- DisplayMemberBinding="{Binding LocalizedDisplayText}" cannot be set -->
+				<ComboBox x:Name="myCombo2"								
+								SelectedValue="{Binding CurrentSelection, Mode=TwoWay, DataType=l:FormMVVM}"
+                DisplayMemberBinding="{Binding LocalizedDisplayText, DataType=l:ItemMVVM}"
+                SelectedValueBinding="{Binding ActualValueToBeSet, DataType=l:ItemMVVM}" />
 				
 				<TextBlock Text="{Binding CurrentSelection}" />
 				
@@ -61,31 +37,21 @@
 			
 		</HeaderedContentControl>
 		
-		<!--  this is what we're trying to accomplish -->
+		<!-- using ComboBoxItem -->
 		
 		<HeaderedContentControl Header="ComboBoxItem" x:Name="myCombo3Context" x:DataType="l:FormMVVM">
 			
 			<StackPanel>
-				
-				<!--In this case, I would like to set SelectedValueBinding to "Tag",
-				so SelectedValue could get and set the value correctly, but to do so
-				we would have to set x:DataType to ComboBoxItem, which would make the
-				SelectedValue bind to stop compiling -->
-			
-				<ComboBox SelectedValue="{Binding CurrentSelection, Mode=TwoWay}">
-					<ComboBoxItem Content="One" Tag="1" />
-					<ComboBoxItem Content="Two" Tag="2" />
-				  <ComboBoxItem Content="Three" Tag="3" />					
+        
+        <ComboBox
+          SelectedValue="{Binding CurrentSelection, Mode=TwoWay}"
+          SelectedValueBinding="{Binding DataContext, DataType=ComboBoxItem}">
+					<ComboBoxItem Content="One" DataContext="1" />
+					<ComboBoxItem Content="Two" DataContext="2" />
+				  <ComboBoxItem Content="Three" DataContext="3" />					
 				</ComboBox>								
 				
-				<TextBlock Text="{Binding CurrentSelection}" />
-				
-			  <!--the reason of using this pattern is that we want to keep our MVVMs as clean 
-				as possible, and our combobox items are usually hardcoded lists that can be
-				set in the xaml, but we do required the display value to be localized, and it
-				makes sense that all the localization happens at the xaml level and not in the
-				code behind.
-				-->
+				<TextBlock Text="{Binding CurrentSelection}" />			  
 				
 			</StackPanel>
 			

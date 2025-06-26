@@ -12,19 +12,19 @@ namespace ComboBoxSandbox
     partial class FormMVVM : ObservableObject
     {
         [ObservableProperty]
-        string currentSelection;
+        int currentSelection = 2;
     }
 
     struct ItemMVVM
     {
         public ItemMVVM(string internalValue, string displayValue)
         {
-            ActualValueToBeSet = internalValue;
+            ActualValueToBeSet = int.Parse(internalValue);
             LocalizedDisplayText = displayValue;
         }
 
 
-        public string ActualValueToBeSet { get; set; } = "2";
+        public int ActualValueToBeSet { get; set; }
         public string LocalizedDisplayText { get; set; }
     }
 }
