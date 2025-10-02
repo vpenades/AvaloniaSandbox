@@ -1,7 +1,7 @@
-dotnet publish //p:PublishProfile="DesktopProfile"
+dotnet publish /property:PublishProfile="DesktopProfile"
 
-dotnet publish //p:PublishProfile="MacOs64Profile"
+dotnet publish /property:PublishProfile="MacOs64Profile"
 
-dotnet publish //p:PublishProfile="MacOsArmProfile"
+dotnet publish /property:PublishProfile="MacOsArmProfile"
 
 read -p "pause"
