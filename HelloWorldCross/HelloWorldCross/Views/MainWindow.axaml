@@ -7,14 +7,7 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="HelloWorldCross.Views.MainWindow"
         Icon="/Assets/avalonia-logo.ico"
-        Title="HelloWorldCross">
-
-  <!--  docs.avaloniaui.net/docs/reference/controls/nativemenu -->
-  <NativeMenu.Menu>
-    <NativeMenu>
-      <NativeMenuItem Header="About Hello World" />
-    </NativeMenu>
-  </NativeMenu.Menu>
+        Title="HelloWorldCross">  
   
   <views:MainView />  
 

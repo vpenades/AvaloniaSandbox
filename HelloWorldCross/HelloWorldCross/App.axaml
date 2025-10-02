@@ -9,6 +9,11 @@
     <FluentTheme />
   </Application.Styles>
 
-  
+  <!--  docs.avaloniaui.net/docs/reference/controls/nativemenu -->
+  <NativeMenu.Menu>
+    <NativeMenu>
+      <NativeMenuItem Header="About Hello World" />
+    </NativeMenu>
+  </NativeMenu.Menu>  
 
 </Application>
