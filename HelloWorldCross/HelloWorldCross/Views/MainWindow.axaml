@@ -8,5 +8,14 @@
         x:Class="HelloWorldCross.Views.MainWindow"
         Icon="/Assets/avalonia-logo.ico"
         Title="HelloWorldCross">
-        <views:MainView />
+
+  <!--  docs.avaloniaui.net/docs/reference/controls/nativemenu -->
+  <NativeMenu.Menu>
+    <NativeMenu>
+      <NativeMenuItem Header="About Hello World" />
+    </NativeMenu>
+  </NativeMenu.Menu>
+  
+  <views:MainView />  
+
 </Window>

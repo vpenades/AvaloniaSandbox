@@ -10,8 +10,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <PublishAot>true</PublishAot>
-    <PublishAot Condition=" '$(RuntimeIdentifier)' == 'osx-x64' " >false</PublishAot>    
+    <PublishAot>true</PublishAot>    
   </PropertyGroup>
 
   <ItemGroup>
