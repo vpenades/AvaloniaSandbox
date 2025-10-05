@@ -12,5 +12,32 @@
     <vm:MainViewModel />
   </Design.DataContext>
 
-  <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+	<TabControl>
+		
+		<TabItem Header="Home">
+			<TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>		
+		</TabItem>
+
+		<TabItem Header="Environment">
+			<ScrollViewer VerticalScrollBarVisibility="Auto">
+				<ItemsControl ItemsSource="{Binding EnvFolders}" Grid.IsSharedSizeScope="True">
+					<ItemsControl.ItemTemplate>
+						<DataTemplate x:DataType="vm:StringPair">
+							<Grid>
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition SharedSizeGroup="Key" />
+									<ColumnDefinition SharedSizeGroup="Value" />
+								</Grid.ColumnDefinitions>
+								<TextBlock Grid.Column="0" Text="{Binding Key}" />
+								<TextBlock Grid.Column="1" Text="{Binding Value}" />
+							</Grid>
+						</DataTemplate>
+					</ItemsControl.ItemTemplate>
+				</ItemsControl>
+			</ScrollViewer>
+		</TabItem>
+		
+	</TabControl>
+
+  
 </UserControl>
