@@ -3,7 +3,7 @@
   "isRoot": true,
   "tools": {
     "Rehametrics.OSXBundler.DotNetTool": {
-      "version": "1.0.0-ci-20251008-1803",
+      "version": "1.0.0-ci-20251014-1805",
       "commands": [
         "MacOsAppBundler"
       ]
