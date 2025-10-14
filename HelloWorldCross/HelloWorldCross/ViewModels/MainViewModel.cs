@@ -35,23 +35,38 @@ public partial class MainViewModel : ViewModelBase
 
     private static IEnumerable<StringPair> GetCertificates()
     {
+        var items = new List<StringPair>();
+
         foreach (var storeName in Enum.GetValues<StoreName>())
         {
+            
 
-            using var store = new X509Store(storeName, StoreLocation.LocalMachine);
-
-            store.Open(OpenFlags.ReadOnly);
-
-            foreach (X509Certificate2 certificate in store.Certificates)
+            try
             {
-                //TODO's
 
-                var key = $"{storeName} {certificate.FriendlyName}";
-                var val = $"{certificate.Subject} {certificate.Issuer}";
+                using var store = new X509Store(storeName, StoreLocation.LocalMachine);
 
-                yield return new StringPair(key, val);
+                store.Open(OpenFlags.ReadOnly);
+
+                foreach (X509Certificate2 certificate in store.Certificates)
+                {
+                    //TODO's
+
+                    var key = $"{storeName} {certificate.FriendlyName}";
+                    var val = $"{certificate.Subject} {certificate.Issuer}";
+
+                    items.Add(new StringPair(key, val));
+                }
             }
+            catch(Exception ex)
+            {
+                items.Add(new StringPair(storeName.ToString(), "ERROR: Can't create store"));
+            }
+
+        
         }
+
+        return items;
     }
 
 
