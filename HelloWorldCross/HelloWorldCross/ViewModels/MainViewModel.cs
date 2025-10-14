@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Dynamic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 
 namespace HelloWorldCross.ViewModels;
 
@@ -11,13 +12,7 @@ public partial class MainViewModel : ViewModelBase
     public string Greeting => "Welcome to Avalonia!";
 
 
-    public IEnumerable<StringPair> EnvFolders
-    {
-        get
-        {
-            return GetFolders();
-        }
-    }
+    public IEnumerable<StringPair> EnvFolders => GetFolders();
 
     private static IEnumerable<StringPair> GetFolders()
     {
@@ -35,6 +30,31 @@ public partial class MainViewModel : ViewModelBase
 
         return list.OrderBy(item => item.Value);
     }
+
+    public IEnumerable<StringPair> Certificates => GetCertificates();
+
+    private static IEnumerable<StringPair> GetCertificates()
+    {
+        foreach (var storeName in Enum.GetValues<StoreName>())
+        {
+
+            using var store = new X509Store(storeName, StoreLocation.LocalMachine);
+
+            store.Open(OpenFlags.ReadOnly);
+
+            foreach (X509Certificate2 certificate in store.Certificates)
+            {
+                //TODO's
+
+                var key = $"{storeName} {certificate.FriendlyName}";
+                var val = $"{certificate.Subject} {certificate.Issuer}";
+
+                yield return new StringPair(key, val);
+            }
+        }
+    }
+
+
 }
 
 public partial class StringPair
