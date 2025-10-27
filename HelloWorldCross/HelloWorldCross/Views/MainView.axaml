@@ -1,8 +1,9 @@
-<UserControl xmlns="https://github.com/avaloniaui"
+﻿<UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="clr-namespace:HelloWorldCross.ViewModels"
+			 xmlns:vv="clr-namespace:HelloWorldCross.Views"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="HelloWorldCross.Views.MainView"
              x:DataType="vm:MainViewModel">
@@ -25,7 +26,7 @@
 		</DataTemplate>
 	</UserControl.DataTemplates>
 
-	<TabControl>
+	<TabControl SelectedIndex="3">
 		
 		<TabItem Header="Home">
 			<TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>		
@@ -41,6 +42,20 @@
 			<ScrollViewer VerticalScrollBarVisibility="Auto">
 				<ItemsControl ItemsSource="{Binding Certificates}" Grid.IsSharedSizeScope="True" />
 			</ScrollViewer>
+		</TabItem>
+
+		<TabItem Header="Fonts">			
+			
+			<StackPanel>				
+				
+				<TextBlock FontFamily="$Default" Text=" ← → ↔ ↑ ↓ ↕ ↖ ↗ ↘ ↙ ⤡ ⤢ ⚙ 🛠 🔝 ❌ 📁 😊" />
+				<TextBlock FontFamily="$Default" Text=" ⚙ 🛠 🔝 ❌ 📁 😊 ← → ↔ ↑ ↓ ↕ ↖ ↗ ↘ ↙ ⤡ ⤢ " />
+
+				<TextBlock Text=" ← → ↔ ↑ ↓ ↕ ↖ ↗ ↘ ↙ ⤡ ⤢ ⚙ 🛠 🔝 ❌ 📁 😊" />
+				<TextBlock Text=" ⚙ 🛠 🔝 ❌ 📁 😊 ← → ↔ ↑ ↓ ↕ ↖ ↗ ↘ ↙ ⤡ ⤢ " />				
+				
+			</StackPanel>			
+			
 		</TabItem>
 		
 	</TabControl>
