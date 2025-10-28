@@ -48,11 +48,11 @@
 			
 			<StackPanel>				
 				
-				<TextBlock FontFamily="$Default" Text=" ← → ↔ ↑ ↓ ↕ ↖ ↗ ↘ ↙ ⤡ ⤢ ⚙ 🛠 🔝 ❌ 📁 😊" />
-				<TextBlock FontFamily="$Default" Text=" ⚙ 🛠 🔝 ❌ 📁 😊 ← → ↔ ↑ ↓ ↕ ↖ ↗ ↘ ↙ ⤡ ⤢ " />
+				<SelectableTextBlock FontFamily="$Default" Text="← → ↔ ↑ ↓ ↕ ↖ ↗ ↘ ↙ ⤡ ⤢ ⚙ 🛠 🔝 ❌ 📁 😊" />
+				<SelectableTextBlock FontFamily="$Default" Text="⚙ 🛠 🔝 ❌ 📁 😊 ← → ↔ ↑ ↓ ↕ ↖ ↗ ↘ ↙ ⤡ ⤢ " />
 
-				<TextBlock Text=" ← → ↔ ↑ ↓ ↕ ↖ ↗ ↘ ↙ ⤡ ⤢ ⚙ 🛠 🔝 ❌ 📁 😊" />
-				<TextBlock Text=" ⚙ 🛠 🔝 ❌ 📁 😊 ← → ↔ ↑ ↓ ↕ ↖ ↗ ↘ ↙ ⤡ ⤢ " />				
+				<SelectableTextBlock Text="← → ↔ ↑ ↓ ↕ ↖ ↗ ↘ ↙ ⤡ ⤢ ⚙ 🛠 🔝 ❌ 📁 😊" />
+				<SelectableTextBlock Text="⚙ 🛠 🔝 ❌ 📁 😊 ← → ↔ ↑ ↓ ↕ ↖ ↗ ↘ ↙ ⤡ ⤢ " />				
 				
 			</StackPanel>			
 			
