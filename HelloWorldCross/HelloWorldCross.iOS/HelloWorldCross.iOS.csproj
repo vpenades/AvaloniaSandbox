@@ -14,11 +14,12 @@
     <RuntimeIdentifier>ios-arm64</RuntimeIdentifier>
   </PropertyGroup>
 
+	<!--
   <PropertyGroup>
     <CodesignProvision>YourProvisioningProfileName</CodesignProvision>
     <CodesignKey>iPhone Developer: Your Name (TEAMID)</CodesignKey>
   </PropertyGroup>
-
+	-->
 
   <ItemGroup>
     <PackageReference Include="Avalonia.iOS" />
