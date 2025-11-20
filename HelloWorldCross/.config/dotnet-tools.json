@@ -9,7 +9,7 @@
       ]
     },
     "AppleDev.Tools": {
-      "version": "0.6.6",
+      "version": "0.7.4",
       "commands": [
         "apple"
       ]
