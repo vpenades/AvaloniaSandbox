@@ -21,4 +21,9 @@
   <ItemGroup>
     <ProjectReference Include="..\HelloWorldCross\HelloWorldCross.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="..\HelloWorldCross.SharedAssets\**" LinkBase="Content" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+  
 </Project>

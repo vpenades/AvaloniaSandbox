@@ -26,4 +26,11 @@
   <ItemGroup>
     <ProjectReference Include="..\HelloWorldCross\HelloWorldCross.csproj" />
   </ItemGroup>
+
+  <!-- https://learn.microsoft.com/en-us/dotnet/maui/android/asset-packs?view=net-maui-10.0 -->
+  
+  <ItemGroup>
+    <AndroidAsset Include="..\HelloWorldCross.SharedAssets\**" LinkBase="Platforms\Android\Assets\" />
+  </ItemGroup>
+  
 </Project>

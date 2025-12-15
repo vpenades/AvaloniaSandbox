@@ -17,7 +17,8 @@
   <!-- this is required to run in a simulator-->
   <PropertyGroup>
     <RuntimeIdentifier>iossimulator-arm64</RuntimeIdentifier>
-  </PropertyGroup>
+  </PropertyGroup> 
+  
 
   <!-- for real devices -->
   <!--
@@ -34,4 +35,11 @@
   <ItemGroup>
     <ProjectReference Include="..\HelloWorldCross\HelloWorldCross.csproj" />
   </ItemGroup>
+
+
+  <ItemGroup>
+    <BundleResource Include="..\HelloWorldCross.SharedAssets\**" LinkBase="Platforms/iOS/Resources" />
+  </ItemGroup>
+  
+  
 </Project>

@@ -1,0 +1,15 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="Directory.Packages.props" />
+    <File Path="README.md" />
+  </Folder>
+  <Project Path="HelloWorldCross.Android/HelloWorldCross.Android.csproj">
+    <Deploy />
+  </Project>
+  <Project Path="HelloWorldCross.Browser/HelloWorldCross.Browser.csproj" />
+  <Project Path="HelloWorldCross.Desktop/HelloWorldCross.Desktop.csproj" />
+  <Project Path="HelloWorldCross.iOS/HelloWorldCross.iOS.csproj">
+    <Deploy />
+  </Project>
+  <Project Path="HelloWorldCross/HelloWorldCross.csproj" />
+</Solution>

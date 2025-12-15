@@ -70,10 +70,15 @@
 				</Button.Flyout>
 			</Button>
 				
-			</StackPanel>			
-
-
+			</StackPanel>
 			
+		</TabItem>
+
+		<TabItem Header="Resource Loading">
+			<StackPanel>
+				<Button Content="LoadResource" Command="{Binding LoadResourcesCommand}" /> 
+				<TextBlock Text="{Binding LoadedResource}" />
+			</StackPanel>
 		</TabItem>
 		
 	</TabControl>
