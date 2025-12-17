@@ -1,0 +1,16 @@
+<Project>
+
+  <!-- per user configuration -->
+
+  <!--
+  <PropertyGroup>
+    <RuntimeIdentifier>iossimulator-arm64</RuntimeIdentifier>
+  </PropertyGroup>
+  
+  <PropertyGroup>
+    <CodesignProvision>YourProvisioningProfileName</CodesignProvision>    
+    <CodesignKey>iPhone Developer: Your Name (TEAMID)</CodesignKey>
+  </PropertyGroup>
+  -->
+
+</Project>
