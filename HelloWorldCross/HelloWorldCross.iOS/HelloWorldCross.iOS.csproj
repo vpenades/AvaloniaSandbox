@@ -12,21 +12,9 @@
 
   <PropertyGroup>
     <RuntimeIdentifier>ios-arm64</RuntimeIdentifier>
-  </PropertyGroup>
+  </PropertyGroup>  
 
-  <!-- this is required to run in a simulator-->
-  <PropertyGroup>
-    <RuntimeIdentifier>iossimulator-arm64</RuntimeIdentifier>
-  </PropertyGroup> 
-  
-
-  <!-- for real devices -->
-  <!--
-  <PropertyGroup>
-    <CodesignProvision>YourProvisioningProfileName</CodesignProvision>    
-    <CodesignKey>iPhone Developer: Your Name (TEAMID)</CodesignKey>
-  </PropertyGroup>
-  -->  
+  <Import Project="buildcfg.debug.user.props" Condition=" '$(Configuration)' == 'Debug' AND Exists('buildcfg.debug.user.props') " />  
 
   <ItemGroup>
     <PackageReference Include="Avalonia.iOS" />
@@ -36,10 +24,9 @@
     <ProjectReference Include="..\HelloWorldCross\HelloWorldCross.csproj" />
   </ItemGroup>
 
-
   <ItemGroup>
-    <BundleResource Include="..\HelloWorldCross.SharedAssets\**" LinkBase="Platforms/iOS/Resources" />
-  </ItemGroup>
-  
+    <!-- apparently BundleResource does not support LinkBase ... maybe a Task would be due. -->
+    <BundleResource Include="..\HelloWorldCross.SharedAssets\asset0.txt" Link="Platforms/iOS/Resources/asset0.txt" />
+  </ItemGroup>  
   
 </Project>
