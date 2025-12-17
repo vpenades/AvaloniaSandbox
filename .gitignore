@@ -405,3 +405,4 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+/HelloWorldCross/HelloWorldCross.iOS/buildcfg.debug.user.props
