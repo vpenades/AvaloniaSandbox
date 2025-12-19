@@ -29,7 +29,23 @@
 	<TabControl SelectedIndex="3">
 		
 		<TabItem Header="Home">
-			<TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>		
+			<StackPanel>
+				<TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>			
+
+				<Button Content="192.168.1.5">
+					<Button.Flyout>
+						<Flyout>
+							<StackPanel>
+								<TextBox Text="1.2.4.5" />
+								<TextBox Text="1.2.5.5" />
+								<TextBox Text="1.2.4.5" />
+								<TextBox Text="1.2.4.5" />
+							</StackPanel>
+						</Flyout>
+					</Button.Flyout>
+				</Button> 
+
+			</StackPanel>			
 		</TabItem>
 
 		<TabItem Header="Environment">

@@ -84,7 +84,7 @@ public partial class MainViewModel : ViewModelBase
     [RelayCommand]
     public async Task LoadResourcesAsync()
     {
-        using var s = await OpenAppFileAsync("asset0.txt");
+        using var s = await FileSystemEx.Current.OpenAppPackageFileAsync("asset0.txt");
 
         using var t = new StreamReader(s);
 
@@ -92,12 +92,7 @@ public partial class MainViewModel : ViewModelBase
     }
 
     [ObservableProperty]
-    private string? loadedResource;
-
-    private static async Task<Stream> OpenAppFileAsync(string path)
-    {
-        return await FileSystemEx.Current.OpenAppPackageFileAsync(path);
-    }
+    private string? loadedResource;    
 }
 
 /// <summary>
